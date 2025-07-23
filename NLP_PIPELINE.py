@@ -28,9 +28,9 @@ def spacy_lemmatize(text):
 
 spacy_lemmas = spacy_lemmatize(text)
 
-print("🔹 Original Text:\n", text)
-print("\n🔹 Tokenized:\n", tokens)
-print("\n🔹 After Stopword Removal:\n", filtered_tokens)
-print("\n🔹 After Stemming:\n", stemmed_tokens)
-print("\n🔹 After Lemmatization (WordNet):\n", lemmatized_tokens)
-print("\n🔹 After Lemmatization (spaCy):\n", spacy_lemmas)
+print("Original Text:\n", text)
+print("\nTokenized:\n", tokens)
+print("\nAfter Stopword Removal:\n", filtered_tokens)
+print("\nAfter Stemming:\n", stemmed_tokens)
+print("\nAfter Lemmatization (WordNet):\n", lemmatized_tokens)
+print("\nAfter Lemmatization (spaCy):\n", spacy_lemmas)
