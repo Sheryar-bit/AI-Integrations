@@ -60,3 +60,6 @@ print(docs)
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_df=0.95, max_features=5000, ngram_range=(1,3))
 word_count_vectors = cv.fit_transform(docs)
+
+
+#to be continued
