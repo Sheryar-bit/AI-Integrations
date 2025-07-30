@@ -61,5 +61,42 @@ from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_df=0.95, max_features=5000, ngram_range=(1,3))
 word_count_vectors = cv.fit_transform(docs)
 
+#transformer
 
-#to be continued
+from sklearn.feature_extraction.text import TfidfTransformer #ussed to convert raw word counts into TF-IDF score
+tfidf_transfromer = TfidfTransformer(smooth_idf=True,use_idf=True) #smoothe_idf=True->avoid division by zero
+tfidf_transfromer=tfidf_transfromer.fit(word_count_vectors)
+
+#Extracting KeyWords
+
+feature_name = cv.get_feature_name_out()
+
+
+def get_keywords(idx, docs):
+    #getting the word count
+    docs_word_count = tfidf_transfromer.transform(cv.transform[docs[idx]])
+
+    #sorting
+    docs_word_count=docs_word_count.tocoo()
+    tuples = zip(docs_word_count.col,docs_word_count.data)
+    sorted(tuples,key=lambda x:(x[1],x[0]), reverse=True)
+
+    #getting the top 10 keywords
+
+
+def print_Keywords(idx,keywords,df):
+    print("\n====TITLE====")
+    print(df['TITLE'][idx])
+    print("\n====abstract====")
+    print(df['abstract'][idx])
+    print("\n====Keywords====")
+    for k in keywords:
+        print(k,keywords[k])
+
+idx=1
+    #
+    # keywords = get_keywords(idx, docs)
+    # print_Keywords(idx,keywords,df)
+
+
+
