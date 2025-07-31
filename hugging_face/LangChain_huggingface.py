@@ -7,6 +7,7 @@ pipe = pipeline("text-generation",
                 device=0,
                 truncation=True
                 )
+
 ## Wrapping it for LangChain so LangChain treats it like an LLM
 llm = HuggingFacePipeline(pipeline=pipe)
 
